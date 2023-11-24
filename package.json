@@ -1,5 +1,5 @@
 {
-    "name": "fvtt-module-template",
+    "name": "petitevue-lib",
     "version": "11.0.0",
     "private": true,
     "type": "module",
