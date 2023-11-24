@@ -10,6 +10,17 @@ Petite Vue Lib is a library for [Foundry VTT](https://foundryvtt.com/) that allo
 
 ## Usage
 
+### Check if the module is installed
+
+```javascript
+if (!game.modules.get("petitevue-lib")?.active) {
+    ui.notifications.error("PetiteVue is not installed or not active. Please install and activate it to use this module.")
+    return
+}
+```
+
+### Get the API
+
 ```javascript
 const petiteVue = await game.modules.get('petitevue-lib').api
 
@@ -34,3 +45,21 @@ petiteVue.createApp({
 </div>
 ```
 
+### Add the library to your module
+
+Add the following to your `module.json` file:
+
+```json
+"relationships": {
+    "requires": [
+        {
+            "id": "petitevue-lib",
+            "type": "module",
+            "manifest": "https://github.com/patrickporto/petitevue-lib/releases/download/11.0.0/module.json",
+            "compatibility": {
+                "verified": "11.0.0"
+            }
+        }
+    ]
+},
+```
