@@ -1,8 +1,9 @@
-import { createApp } from "petite-vue"
+import { createApp, reactive } from "petite-vue"
 import { CANONICAL_NAME, MODULE_NAME } from "./constants.js";
 
 const api = {
     createApp,
+    reactive,
 }
 
 Hooks.on('init', async () => {
