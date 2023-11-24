@@ -1,6 +1,6 @@
 {
     "id": "petitevue-lib",
-    "version": "11.0.0",
+    "version": "0.4.1",
     "compatibility": {
         "minimum": "11",
         "verified": "11",
