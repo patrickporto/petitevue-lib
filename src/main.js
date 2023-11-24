@@ -10,6 +10,7 @@ const api = {
 Hooks.on('init', async () => {
     console.log(`${MODULE_NAME} | Initializing ${MODULE_NAME}`);
     game.modules.get(CANONICAL_NAME).api = api
+    window.petiteVue = api
     Hooks.callAll(`${CANONICAL_NAME}.init`, api);
 });
 

@@ -6,9 +6,31 @@
 
 ## About
 
-> TODO
+Petite Vue Lib is a library for [Foundry VTT](https://foundryvtt.com/) that allows you to create web components for your [system](https://foundryvtt.com/article/systems/) or [module](https://foundryvtt.com/article/modules/) using [Petite Vue](https://github.com/vuejs/petite-vue).
 
-## Settings
+## Usage
 
-> TODO
+```javascript
+const petiteVue = await game.modules.get('petitevue-lib').api
+
+petiteVue.createApp({
+    // exposed to all expressions
+    count: 0,
+    // getters
+    get plusOne() {
+        return this.count + 1
+    },
+    // methods
+    increment() {
+        this.count++
+    }
+}).mount(".sheet.custom")
+
+<!-- v-scope value can be omitted -->
+<div class="sheet custom" v-scope>
+  <p>{{ count }}</p>
+  <p>{{ plusOne }}</p>
+  <button @click="increment">increment</button>
+</div>
+```
 
