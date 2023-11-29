@@ -22,20 +22,26 @@ if (!game.modules.get("petitevue-lib")?.active) {
 ### Get the API
 
 ```javascript
-const petiteVue = await game.modules.get('petitevue-lib').api
-
-petiteVue.createApp({
-    // exposed to all expressions
-    count: 0,
-    // getters
-    get plusOne() {
-        return this.count + 1
-    },
-    // methods
-    increment() {
-        this.count++
+activateListeners(html) {
+    super.activateListeners(html);
+    if (!this._app) {
+        const { createApp } = game.modules.get('petitevue-lib').api
+        const scope = {
+            // exposed to all expressions
+            count: 0,
+            // getters
+            get plusOne() {
+                return this.count + 1
+            },
+            // methods
+            increment() {
+                this.count++
+            }
+        }
+        this._app = createApp(scope)
     }
-}).mount(".sheet.custom")
+    this._app.mount(".sheet.custom")
+}
 
 <!-- v-scope value can be omitted -->
 <div class="sheet custom" v-scope>
